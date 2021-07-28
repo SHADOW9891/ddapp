@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Diabetics</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="{{ url_for('static', filename='pulse.png') }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='transition.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.js') }}">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://kit.fontawesome.com/c64239e47f.js" crossorigin="anonymous"></script>
+
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+.w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+.fa-anchor,.fa-coffee {font-size:200px}
+::placeholder {text-align: center}
+</style>
+<body>
+
+<div class="transition transition-1 is-active"></div>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-red w3-card w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="/" class="w3-bar-item w3-button w3-padding-large w3-hover-yellow">Home</a>
+    <a href="Heart" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-yellow">Heart</a>
+    <a href="Diabetics" class="w3-bar-item w3-button w3-hide-small w3-white w3-padding-large w3-hover-white">Diabetics</a>
+    <a href="Malaria" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-yellow">Malaria</a>
+    <a href="Covid19" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-yellow">Covid19</a>
+    <a href="Brain_Tumor" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-yellow">Brain Tumor</a>
+    <div><i class="fa fa-star-of-life w3-spin w3-right w3-padding-large w3-hide-small" style="font-size:27px"></i></div>
+  </div>
+
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+    <a href="Heart" class="w3-bar-item w3-button w3-padding-large">Heart</a>
+    <a href="Diabetics" class="w3-bar-item w3-button w3-padding-large">Diabetics</a>
+    <a href="Malaria" class="w3-bar-item w3-button w3-padding-large">Malaria</a>
+    <a href="Covid19" class="w3-bar-item w3-button w3-padding-large">Covid19</a>
+    <a href="Brain_Tumor" class="w3-bar-item w3-button w3-padding-large">Brain Tumor</a>
+  </div>
+</div>
+
+
+<header class="w3-container w3-center" style="padding:100px 16px">
+  <div class="w3-card-4">
+  <div class="w3-container w3-green">
+    <h2>Diabetics</h2>
+  </div>
+  <form class="w3-container w3-padding-32 w3-pale-yellow" action="{{ url_for('Diabetics_res') }}" method="POST">
+    <p>
+    <label class="w3-text-brown"><b>Age</b></label>
+    <input class="w3-input w3-border w3-white w3-border-green w3-center" type="text" name="Age" required="required" placeholder="Years">
+    </p>
+
+    <p>
+    <label class="w3-text-brown"><b>BMI</b></label>
+    <input class="w3-input w3-border w3-white w3-border-green w3-center" type="text" name="BMI" required="required" placeholder="18 - 50">
+    </p>
+
+    <p>
+    <label class="w3-text-brown"><b>Blood Pressure</b></label>
+    <input class="w3-input w3-border w3-white w3-border-green w3-center" type="text" name="BloodPressure" required="required" placeholder="38 - 106">
+    </p>
+
+    <p>
+    <label class="w3-text-brown"><b>Glucose</b></label>
+    <input class="w3-input w3-border w3-white w3-border-green w3-center" type="text" name="Glucose" required="required" placeholder="44 - 198">
+    </p>
+
+    <p>
+    <label class="w3-text-brown"><b>Insulin</b></label>
+    <input class="w3-input w3-border w3-white w3-border-green w3-center" type="text" name="Insulin" required="required" placeholder="0 - 318">
+    </p>
+
+    <p>
+    <label class="w3-text-brown"><b>Skin Thickness</b></label>
+    <input class="w3-input w3-border w3-white w3-border-green w3-center" type="text" name="SkinThickness" required="required" placeholder="0 - 60">
+    </p>
+
+    <p>
+    <label class="w3-text-brown"><b>Pregnancies</b></label>
+    <input class="w3-input w3-border w3-white w3-border-green w3-center" type="text" name="Pregnancies" required="required" placeholder="0 - 13">
+    </p>
+
+    <p>
+    <label class="w3-text-brown"><b>Diabetes Pedigree Function</b></label>
+    <input class="w3-input w3-border w3-white w3-border-green w3-center" type="text" name="DiabetesPedigreeFunction" required="required" placeholder="0.078 - 1.191">
+    </p>
+
+    <button class="w3-btn w3-green ">Check</button>
+    <button class="w3-btn w3-red " type="reset">Reset</button>
+  </form>
+</div>
+</header>
+
+<script>
+// Used to toggle the menu on small screens when clicking on the menu button
+function myFunction() {
+  var x = document.getElementById("navDemo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else {
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+</script>
+
+<script src="{{ url_for('static', filename='main.js') }}"></script>
+
+</body>
+</html>

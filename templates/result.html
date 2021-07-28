@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Result</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='pulse.png') }}">
+</head>
+<body style="background-color: #e6ccff">
+
+     <div class="w3-container w3-padding-64">
+     <div class="w3-card w3-center w3-padding-32 w3-white" style= "max-width: 500px; margin:0 auto;">
+     <div class="card-body">
+     <div class="title">
+         <h3>
+           <font color="black">Our model predict that you are </font>
+         </h3>
+         <font color='white'>
+           <h1>
+             <font color="blue">{{ prediction }}</font>
+          </h1>
+         </font>
+         <h3>
+           <font color="black">by {{ this }} Disease</font>
+         </h3>
+     </div>
+     </div>
+     </div>
+     </div>
+
+     <div class="w3-container w3-center">
+         <button class="w3-btn w3-blue" onclick="history.go(-1)">Back</button>
+     </div>
+
+
+</body>
+</html>

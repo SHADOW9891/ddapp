@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Malaria</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="{{ url_for('static', filename='pulse.png') }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='transition.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.js') }}">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://kit.fontawesome.com/c64239e47f.js" crossorigin="anonymous"></script>
+
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+.w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+.fa-anchor,.fa-coffee {font-size:200px}
+</style>
+
+<script>
+    function showloading() {
+        image = document.getElementById('loading_image');
+        image.style.display = 'inline'
+    }
+</script>
+
+
+
+<body>
+
+<div class="transition transition-1 is-active"></div>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-red w3-card w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="/" class="w3-bar-item w3-button w3-padding-large w3-hover-yellow">Home</a>
+    <a href="Heart" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-yellow">Heart</a>
+    <a href="Diabetics" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-yellow">Diabetics</a>
+    <a href="Malaria" class="w3-bar-item w3-button w3-hide-small w3-white w3-padding-large w3-hover-white">Malaria</a>
+    <a href="Covid19" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-yellow">Covid19</a>
+    <a href="Brain_Tumor" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-yellow">Brain Tumor</a>
+    <div><i class="fa fa-star-of-life w3-spin w3-right w3-padding-large w3-hide-small" style="font-size:27px"></i></div>
+  </div>
+
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+    <a href="Heart" class="w3-bar-item w3-button w3-padding-large">Heart</a>
+    <a href="Diabetics" class="w3-bar-item w3-button w3-padding-large">Diabetics</a>
+    <a href="Malaria" class="w3-bar-item w3-button w3-padding-large">Malaria</a>
+    <a href="Covid19" class="w3-bar-item w3-button w3-padding-large">Covid19</a>
+    <a href="Brain_Tumor" class="w3-bar-item w3-button w3-padding-large">Brain Tumor</a>
+  </div>
+</div>
+
+
+<div class="w3-container w3-center" style="padding:100px 16px">
+    <div class="w3-card-4">
+    <div class="w3-container w3-green w3-padding-32">
+    <div>
+        <img id="virus" style="padding:5px;width:250px;height:150px" src="{{ url_for('static', filename='malaria.jpg')}}">
+    </div>
+    <h2>Malaria detection</h2>
+    <br><br>
+
+    <form  action="{{ url_for('Malaria_res') }}" method="post" enctype="multipart/form-data" onsubmit="showloading()">
+
+        <div class=" btn btn-default btn-file">
+            Select Image <input type="file" name="image" accept=".png, .jpg, .jpeg" required="required">
+        </div><br><br>
+        <button type="submit" class="w3-btn w3-brown">Upload</button>
+        <button class="w3-btn w3-red" type="reset">Reset</button>
+    </form>
+  <hr>
+
+        <img id="loading_image" class="w3-spin" style="display: none" src="{{ url_for('static', filename='loader.png')}}">
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    </div>
+</div>
+
+<script>
+// Used to toggle the menu on small screens when clicking on the menu button
+function myFunction() {
+  var x = document.getElementById("navDemo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else {
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+</script>
+
+<script src="{{ url_for('static', filename='main.js') }}"></script>
+
+</body>
+</html>

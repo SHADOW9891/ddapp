@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Health Detector</title>
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="{{ url_for('static', filename='heartpulse.png') }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='transition.css') }}">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://kit.fontawesome.com/c64239e47f.js" crossorigin="anonymous"></script>
+
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+.w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+.w3-tangerine {font-family: "Tangerine", serif}
+.fa-user-md,.fa-heartbeat, .fa-hand-holding-medical {font-size:200px}
+.fa-ambulance, .fa-plus-square, .fa-heartbeat, .fa-h-square , .fa-virus {font-size:100px}
+</style>
+<body>
+
+
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-red w3-card w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="/" class="w3-bar-item w3-button w3-padding-large w3-white w3-large w3-hover-white">Home</a>
+    <a href="Heart" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-yellow w3-large">Heart</a>
+    <a href="Diabetics" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-yellow w3-large">Diabetics</a>
+    <a href="Malaria" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-yellow w3-large">Malaria</a>
+    <a href="Covid19" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-yellow w3-large">Covid19</a>
+    <a href="Brain_Tumor" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-yellow w3-large">Brain Tumor</a>
+    <div><i class="fa fa-star-of-life w3-spin w3-tooltip w3-right w3-padding-large w3-hide-small" style="font-size:27px" title="Health Spin"></i></div>
+  </div>
+
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+    <a href="Heart" class="w3-bar-item w3-button w3-padding-large">Heart</a>
+    <a href="Diabetics" class="w3-bar-item w3-button w3-padding-large">Diabetics</a>
+    <a href="Malaria" class="w3-bar-item w3-button w3-padding-large">Malaria</a>
+    <a href="Covid19" class="w3-bar-item w3-button w3-padding-large">Covid19</a>
+    <a href="Brain_Tumor" class="w3-bar-item w3-button w3-padding-large">Brain Tumor</a>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="w3-container w3-red w3-center w3-animate-top" style="padding:90px 16px">
+    <h1 class="w3-margin w3-jumbo" style="text-shadow:1px 1px 0 #444"><b>HEALTH DETECTOR</b></h1>
+
+  <div class="w3-row w3-hide-small">
+  <div class="w3-col" style="width:38%"><p></p></div>
+  <div class="w3-col" style="width:24%"><p>
+      <div class="w3-center">
+          <form class="w3-half" action="{{ url_for('.download_file') }}" method="GET">
+              <button type="submit" class="w3-button w3-black w3-hover-white">Research Paper</button>
+          </form>
+
+          <form class="w3-half" action="{{ url_for('.download_images') }}" method="GET">
+              <button type="submit" class="w3-button w3-black w3-hover-white">Sample X-rays</button>
+          </form>
+      </div>
+  </p></div>
+  <div class="w3-col" style="width:38%"><p></p></div>
+  </div>
+
+</header>
+
+<div class="w3-container w3-black w3-center w3-mobile w3-animate-bottom" style="padding:7px 16px">
+  <p class="w3-tangerine w3-xxxlarge">Your Health Your Mission</p>
+  <div class="heart-rate">
+      <svg version="1.0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="150px" height="73px" viewBox="0 0 150 73" enable-background="new 0 0 150 73" xml:space="preserve">
+        <polyline fill="none" stroke="#009B9E" stroke-width="3" stroke-miterlimit="10" points="0,45.486 38.514,45.486 44.595,33.324 50.676,45.486 57.771,45.486 62.838,55.622 71.959,9 80.067,63.729 84.122,45.486 97.297,45.486 103.379,40.419 110.473,45.486 150,45.486"/>
+      </svg>
+    <div class="fade-in"></div>
+    <div class="fade-out"></div>
+  </div>
+</div>
+
+<!-- First Grid -->
+<div class="w3-row-padding w3-padding-64 w3-container">
+  <div class="w3-content">
+    <div class="w3-twothird w3-center">
+      <h1>ML & DL Web App</h1>
+      <h5 class="w3-padding-32">This is a basic disease detection medical web app.</h5>
+      <p>The prediction about the disease is made with the help of the machine learning and deep learning models trained on medical datasets.</p>
+    </div>
+
+    <div class="w3-third w3-center">
+      <i class="fa fa-user-md w3-padding-32 w3-text-brown"></i>
+    </div>
+  </div>
+</div>
+
+<!-- Second Grid -->
+<div class="w3-row-padding w3-yellow w3-padding-64 w3-container">
+  <div class="w3-content">
+    <div class="w3-third w3-center">
+      <i class="fa fa-hand-holding-medical w3-padding-32 w3-text-red w3-margin-right"></i>
+    </div>
+
+    <div class="w3-twothird w3-center">
+      <h1></h1>
+      <h5 class="w3-padding-32">Stay connected with these healthcare platforms.</h5>
+
+        <div class="w3-wide">
+            <a class="w3-mobile" href="https://112.gov.in/"><i class="fa fa-ambulance w3-padding-16 w3-text-brown w3-hover-opacity" title="Emergency"></i></a>
+            <a class="w3-mobile" href="https://www.covid19india.org/"><i class="fa fa-virus w3-padding-16 w3-text-brown w3-hover-opacity" title="Covid19"></i></a>
+            <a class="w3-mobile" href="https://www.nhp.gov.in/miscellaneous/first-aid/"><i class="fa fa-plus-square w3-padding-16 w3-text-brown w3-hover-opacity" title="FirstAid"></i></a>
+            <a class="w3-mobile" href="https://www.india.gov.in/topics/health-family-welfare"><i class="fa fa-heartbeat w3-padding-16 w3-text-brown w3-hover-opacity" title="Health & family welfare"></i></a>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="w3-container">
+  <div class="w3-panel w3-light-sand w3-card-2">
+    <span style="font-size:150px;line-height:0.6em;opacity:0.2">❝</span>
+    <p class="w3-xlarge w3-center" style="margin-top:-50px"><i>Without health life is not life; it is only a state of langour and suffering – an image of death. <br><span class="w3-center">- Buddha</span></i></p>
+  </div>
+</div>
+
+<div class="w3-container w3-black w3-center w3-opacity w3-padding-32">
+    <h1 class="w3-margin w3-xlarge w3-animate-fading">Stay Safe. Stay Healthy.</h1>
+</div>
+
+<!-- Footer -->
+<footer class="w3-container w3-padding-64 w3-center w3-opacity">
+  <div class="w3-xxlarge w3-padding-32">
+    <a class="w3-mobile" href="https://github.com/"><i class="fa fa-github w3-hover-opacity" title="Github"></i></a>
+ </div>
+ <p>Copyright@<span>Siddhesh Bhabad</span></p>
+</footer>
+
+<script>
+// Used to toggle the menu on small screens when clicking on the menu button
+function myFunction() {
+  var x = document.getElementById("navDemo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else {
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+</script>
+
+<script src="{{ url_for('static', filename='main.js') }}"></script>
+
+</body>
+</html>
