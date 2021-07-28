@@ -85,7 +85,7 @@ six
 sklearn
 tensorboard
 tensorboard-plugin-wit
-tensorflow-gpu
+tensorflow-cpu
 tensorflow-estimator
 termcolor
 terminado
