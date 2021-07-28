@@ -11,7 +11,7 @@ from werkzeug.utils import secure_filename
 app = Flask(__name__)
 
 # Model saved with Keras model.save()
-MODEL_PATH_c = './model'
+MODEL_PATH_c = 'model_cnn_Covid19.h5'
 
 
 # Load your trained model
