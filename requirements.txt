@@ -16,6 +16,7 @@ Flask
 Flask-Cors
 gast
 geojson
+gunicorn
 google-auth
 google-auth-oauthlib
 google-pasta
@@ -84,7 +85,7 @@ six
 sklearn
 tensorboard
 tensorboard-plugin-wit
-tensorflow
+tensorflow-gpu
 tensorflow-estimator
 termcolor
 terminado
